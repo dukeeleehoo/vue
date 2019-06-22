@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>v-model 双向数据绑定</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h4>{{msg}}</h4>
+        <!-- v-bind只能实现数据得单向绑定  从M(data)绑定到页面  无法实现数据得双向绑定 -->
+       <input type="text" :value="msg">  <br> <br>
+		<!-- v-model 可以实现数据得双向绑定 从M到V(页面) -->
+		<!-- 注意 只能使用在 表单元素中 （input select  checkbox address  radio ....）-->
+       <input type="text"  v-model="msg">
+    </div>
+    <script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            msg: '我是你大爷'
+        },
+        methods: {
+ 
+        }
+
+    })
+    </script>
+</body>
+
+</html>
