@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+        <div class="test">
+            <div>{{msg}}</div>
+            <input type="button" value="start" @click="start"> 
+            <input type="button" value="stop" @click="stop">
+        </div>
+
+
+
+    <script>
+    var vm  = new Vue({
+        el:".test",
+        data:{
+            msg:"你是个大傻B!",
+            intervalId:null
+        },
+        methods:{
+            start(){
+                if(this.intervalId!=null) return;
+                this.intervalId = setInterval(() => {
+                    var start = this.msg.substring(1);
+                    var end = this.msg.substring(0,1);
+                    this.msg = start+end;
+                }, 500);
+            },
+            stop(){
+                clearInterval(this.intervalId);
+                this.intervalId = null;
+            }
+        }
+    
+    
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <style>
+            ul li {
+                list-style: none;
+            }
+    </style>
+</head>
+
+<body>
+
+    <!-- 循环 -->
+    <div class="test">
+        <ul v-for="n in number">
+            <li>{{n}}</li>
+        </ul>
+        <!-- 循环数组对象 -->
+        <ul v-for="(s,i) in students">
+            <li><span style="color: red">{{i}}&nbsp;&nbsp;</span>{{s.name}}:{{s.age}}</li>
+        </ul>
+        <!-- 循环单个对象 -->
+        <ul v-for="(val,key,i) in user">
+            <li>这是第{{i}}个属性++++{{key}}值是{{val}}</li>
+        </ul>
+
+
+        <!-- 循环数字 -->
+            <ul v-for="item in 10">
+                <li>{{item}}</li>
+            </ul>
+
+    </div>
+    <script>
+
+        var vm  = new Vue({
+            el:".test",
+            data:{
+                number:[1,2,3,4,5],
+                students:[{
+                    name :"王二夏松",
+                    age:22
+                },{
+                name:"尔雷兹",
+                age:"23" 
+                },{
+                    name:"黄飞鸿",
+                    age:"25"
+                }],
+                user:{
+                    name :"托尼斯达克",
+                    age:"99",
+                    gender:"其他"
+                }
+            }
+        });    
+        
+    </script>
+</body>
+</html>
+

@@ -5,26 +5,53 @@
     <meta charset="UTF-8">
     <title>v-model 双向数据绑定</title>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <style>
+        .btn {
+            border: 1px solid skyblue;
+        }
+    </style>
 </head>
 
 <body>
     <div id="app">
-        <h4>{{msg}}</h4>
+        <h4>{{msg}} </h4>
         <!-- v-bind只能实现数据得单向绑定  从M(data)绑定到页面  无法实现数据得双向绑定 -->
-       <input type="text" :value="msg">  <br> <br>
-		<!-- v-model 可以实现数据得双向绑定 从M到V(页面) -->
-		<!-- 注意 只能使用在 表单元素中 （input select  checkbox address  radio ....）-->
-       <input type="text"  v-model="msg">
+        <input type="text" :value="msg"> <br> <br>
+        <!-- v-model 可以实现数据得双向绑定 从M到V(页面) -->
+        <!-- 注意 只能使用在 表单元素中 （input select  checkbox address  radio ....）-->
+        <input type="text" v-model="msg"> <br>
+        <input type="button" class="btn" value="点击按钮" @click.once="show">
+        <select name="" id="" @change="ch">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+
+        <input type="button" value="title" :title="title+'123344'">
+        <div v-text="msg">{{msg}}</div>
     </div>
+    <address>
+        这里是地址栏
+    </address>
     <script>
-    	<!-- 创建vue实例 -->
+    // <!-- 创建vue实例 -->
     var vm = new Vue({
         el: '#app',
         data: {
-            msg: '我是你大爷'
+            msg: '<h1>击落美国无人机</h1>',
+            page:10,
+            title: "去你大爷的"
         },
         methods: {
- 
+
+            show() {
+                alert("点击事件!");
+            },
+            ch() {
+                alert("selcet值变化了!");
+            }
         }
 
     })
